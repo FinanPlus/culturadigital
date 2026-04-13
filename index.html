@@ -97,27 +97,23 @@
         line-height: 1.5;
     }
 
-    ul.data-list li {
-        margin-bottom: 8px;
-    }
-
     table {
         border-collapse: collapse;
         width: 100%;
         margin-top: 8px;
-        font-size: 17px;
+        font-size: 15px;
     }
 
     th {
         background-color: var(--primary);
         color: white;
-        padding: 10px;
+        padding: 8px;
         text-align: left;
     }
 
     td {
         border-bottom: 1px solid #eee;
-        padding: 10px;
+        padding: 8px;
         color: var(--text);
     }
 
@@ -125,12 +121,14 @@
 
     .formula-tag {
         font-family: 'Courier New', Courier, monospace;
-        font-size: 13px;
-        color: #555;
-        background: #f0f0f0;
+        font-size: 12px;
+        color: #d35400;
+        background: #fdf2e9;
         padding: 3px 7px;
+        border: 1px solid #e67e22;
         border-radius: 4px;
         display: inline-block;
+        font-weight: bold;
     }
 
     .highlight-green {
@@ -147,7 +145,7 @@
         color: var(--accent);
         font-weight: bold;
         text-align: right;
-        font-size: 21px;
+        font-size: 18px;
     }
 
     .footer-brand {
@@ -160,23 +158,20 @@
 
     .card {
         background: var(--bg-light);
-        padding: 15px;
+        padding: 12px;
         border-radius: 8px;
-        box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
     }
 
     .question-box {
-        margin-top: 15px;
-        padding: 15px;
+        margin-top: 10px;
+        padding: 12px;
         background: #fff;
         border-left: 4px solid var(--accent);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     }
 
     .answer {
         color: var(--accent);
         font-weight: bold;
-        margin-top: 5px;
     }
 </style>
 </head>
@@ -198,102 +193,66 @@
     <h2>Datos Iniciales del Proyecto</h2>
     <div class="card">
         <ul class="data-list">
-            <li><strong>Financiamiento Total:</strong> $5,000 USD ($1,500 Deuda, $1,000 Acc. Preferentes, $2,500 Acc. Comunes).</li>
-            <li><strong>Flujos de Efectivo Proyectados:</strong> $1,500 USD anuales (Años 1 al 4).</li>
-            <li><strong>Deuda:</strong> Bono colocado en $1,020 (Valor par $1,000). Cupón 8% anual, pagos semestrales, plazo 8 años. Tasa de impuestos 30%.</li>
-            <li><strong>Acciones Preferentes:</strong> Colocación de $1,000 a $72 c/u. Dividendo año 1: $3.0. Crecimiento esperado (g): 3% anual.</li>
-            <li><strong>Acciones Comunes:</strong> Tasa libre de riesgo (RF) 4%, Beta (&beta;) 1.1, Rendimiento mercado (RM) 9%.</li>
-            <li><strong>Costos de Flotación:</strong> 5% sobre la colocación de acciones preferentes y comunes.</li>
+            <li><strong>Financiamiento:</strong> $1,500 Deuda | $1,000 Acc. Preferentes | $2,500 Acc. Comunes.</li>
+            <li><strong>Flujos (Años 1-4):</strong> $1,500 USD anuales.</li>
+            <li><strong>Bono:</strong> Precio $1,020 (Par $1,000). Cupón 8% semestral, 8 años, Tax 30%.</li>
+            <li><strong>Preferentes:</strong> $1,000 totales. Precio $72. Div Año 1: $3.0. Crecimiento (g): 3%.</li>
+            <li><strong>Comunes:</strong> $2,500 totales. RF: 4%, Beta: 1.1, RM: 9%.</li>
+            <li><strong>Flotación:</strong> 5% sobre acciones (Preferentes y Comunes).</li>
         </ul>
     </div>
     <div class="footer-brand">Proyecto Finanzas | Datos</div>
 </div>
 
 <div class="slide-container">
-    <h2>Evaluación Financiera: Flujos de Efectivo</h2>
+    <h2>Análisis de Costo de Deuda (Kdt)</h2>
     <table>
         <thead>
             <tr>
-                <th>Año</th>
-                <th>Flujo de Efectivo</th>
-                <th>Flujo VP</th>
-                <th>Fórmula</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>0</td><td>$ 5,000.00</td><td class="highlight-red">-$ 5,175.00</td><td><span class="formula-tag">-(Inv + Flotación)</span></td></tr>
-            <tr><td>1</td><td>$ 1,500.00</td><td>$ 1,390.65</td><td><span class="formula-tag">Flujo / (1+WACC)^1</span></td></tr>
-            <tr><td>2</td><td>$ 1,500.00</td><td>$ 1,289.27</td><td><span class="formula-tag">Flujo / (1+WACC)^2</span></td></tr>
-            <tr><td>3</td><td>$ 1,500.00</td><td>$ 1,195.28</td><td><span class="formula-tag">Flujo / (1+WACC)^3</span></td></tr>
-            <tr><td>4</td><td>$ 1,500.00</td><td>$ 1,108.14</td><td><span class="formula-tag">Flujo / (1+WACC)^4</span></td></tr>
-            <tr class="highlight-green">
-                <td colspan="2" style="text-align:right">VALOR PRESENTE NETO (VPN)</td>
-                <td class="highlight-red" style="font-size: 24px;">-$ 191.66</td>
-                <td><span class="formula-tag">Σ Flujos VP</span></td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="footer-brand">Proyecto Finanzas | Slide 1</div>
-</div>
-
-<div class="slide-container">
-    <h2>Pesos de Capital y Costos de Flotación</h2>
-    <div class="card">
-        <h3>Pesos (W)</h3>
-        <table style="margin-top: 5px;">
-            <thead>
-                <tr>
-                    <th>Concepto</th>
-                    <th style="text-align:right">Valor</th>
-                    <th>Fórmula</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>Peso Deuda</td><td style="text-align:right">30%</td><td>Monto Deuda / Total</td></tr>
-                <tr><td>Peso Acciones Preferentes</td><td style="text-align:right">20%</td><td>Monto Pref / Total</td></tr>
-                <tr><td>Peso Acciones Comunes</td><td style="text-align:right">50%</td><td>Monto Común / Total</td></tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="card" style="margin-top:15px;">
-        <h3>Costos de Flotación</h3>
-        <table style="margin-top: 5px;">
-            <tr>
-                <td>Costo de flotación</td>
-                <td style="text-align:right; width: 120px;"><strong>$ 175.00</strong></td>
-                <td><span class="formula-tag">(Monto en acciones preferentes+Monto en acciones comunes)* Tasa de costo de flotación</span></td>
-            </tr>
-        </table>
-    </div>
-    <div class="footer-brand">Proyecto Finanzas | Slide 2</div>
-</div>
-
-<div class="slide-container">
-    <h2>Análisis de Costo de Deuda</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Variable</th>
+                <th>Concepto</th>
                 <th>Valor</th>
-                <th>Fórmula de Referencia</th>
+                <th>Cálculo / Fórmula Resaltada</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>Valor Presente (VP)</td><td>-1,020</td><td>Monto actual</td></tr>
-            <tr><td>Valor Futuro (VF)</td><td>1,000</td><td>Valor al vencimiento</td></tr>
-            <tr><td>Periodos (n)</td><td>16</td><td>Semestres totales (8 años)</td></tr>
-            <tr><td>Tasa Semestral</td><td>4.00%</td><td>Tasa anual / 2</td></tr>
-            <tr><td>Tasa Anual</td><td>8.00%</td><td><span class="formula-tag">Tasa Semestral * 2</span></td></tr>
-            <tr><td>Escudo Fiscal</td><td>30%</td><td>Tasa impositiva</td></tr>
-            <tr><td>Costo de la Deuda (Kdt)</td><td>5.60%</td><td><span class="formula-tag">Tasa Anual * (1 - Tax)</span></td></tr>
+            <tr>
+                <td>Pago de Cupón (C)</td>
+                <td>$40.00</td>
+                <td><span class="formula-tag"> (Valor Par * %Cupón) / 2 </span> &rarr; (1000 * 0.08) / 2</td>
+            </tr>
+            <tr>
+                <td>Valor Presente / Futuro</td>
+                <td>$1,020 / $1,000</td>
+                <td>Precio de mercado vs Valor al vencimiento</td>
+            </tr>
+            <tr>
+                <td>Periodos (n)</td>
+                <td>16 semestres</td>
+                <td><span class="formula-tag"> Años * 2 </span> &rarr; 8 * 2</td>
+            </tr>
+            <tr>
+                <td>Tasa Semestral (Kd sem)</td>
+                <td>3.83%</td>
+                <td><span class="formula-tag"> =TASA(Periodos; Cupón; VP; VF; 0) </span> </td>
+            </tr>
+            <tr>
+                <td>Tasa Anual Antes Imp.</td>
+                <td>7.66%</td>
+                <td><span class="formula-tag"> Kd sem * 2 </span></td>
+            </tr>
+            <tr class="highlight-green">
+                <td>Costo Deuda (Kdt)</td>
+                <td class="result-value" style="text-align:left">5.36%</td>
+                <td><span class="formula-tag"> Tasa Anual * (1 - Tax) </span> &rarr; 7.66% * (1 - 0.30)</td>
+            </tr>
             <tr class="highlight-green">
                 <td>Costo Ponderado Deuda</td>
-                <td class="result-value" style="text-align: left;">1.68%</td>
-                <td><span class="formula-tag">Kdt * Peso Deuda (30%)</span></td>
+                <td class="result-value" style="text-align: left;">1.61%</td>
+                <td><span class="formula-tag"> Kdt * Peso (30%) </span></td>
             </tr>
         </tbody>
     </table>
-    <div class="footer-brand">Proyecto Finanzas | Slide 3</div>
+    <div class="footer-brand">Proyecto Finanzas | Costo Deuda</div>
 </div>
 
 <div class="slide-container">
@@ -307,7 +266,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>Costo de la Acción (Kp)</td><td style="text-align:right">7.17%</td><td><span class="formula-tag">(Div / Precio) + g</span></td></tr>
+            <tr><td>Costo de la Acción (Kp)</td><td style="text-align:right">3/72 + 3 %=  7.17%</td><td><span class="formula-tag">(Div / Precio) + g</span></td></tr>
             <tr><td>Peso en la Estructura</td><td style="text-align:right">20%</td><td>Dato de mercado</td></tr>
             <tr class="highlight-green">
                 <td>COSTO PONDERADO</td>
@@ -320,75 +279,120 @@
 </div>
 
 <div class="slide-container">
-    <h2>Costo de Acciones Comunes (CAPM)</h2>
+    <h2>COSTO DE ACCIONES COMUNES (CAPM)</h2>
     <table>
         <thead>
             <tr>
-                <th>Variable</th>
-                <th>Valor</th>
-                <th>Fórmula</th>
+                <th style="width: 40%;">Variable</th>
+                <th style="text-align: center;">Valor</th>
+                <th style="text-align: left;">Fórmula</th>
             </tr>
         </thead>
         <tbody>
-            <tr><td>Tasa Libre Riesgo (RF)</td><td style="text-align:right">4.00%</td><td></td></tr>
-            <tr><td>Beta (&beta;)</td><td style="text-align:right">1.1</td><td></td></tr>
-            <tr><td>Rendimiento Mercado (RM)</td><td style="text-align:right">9.00%</td><td></td></tr>
-            <tr><td>Prima de Mercado</td><td style="text-align:right">5%</td><td><span class="formula-tag">RM - RF</span></td></tr>
-            <tr><td>Costo Acción (Ks)</td><td style="text-align:right">9.50%</td><td><span class="formula-tag">(Prima * Beta) + RF</span></td></tr>
+            <tr>
+                <td>Tasa Libre Riesgo (RF)</td>
+                <td style="text-align: center;">4.00%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Beta (&beta;)</td>
+                <td style="text-align: center;">1.1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Rendimiento Mercado (RM)</td>
+                <td style="text-align: center;">9.00%</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Prima de Mercado</td>
+                <td style="text-align: center;">5%</td>
+                <td><span class="formula-tag">RM - RF</span></td>
+            </tr>
+            <tr>
+                <td>Costo Acción (Ks)</td>
+                <td style="text-align: center;">9.50%</td>
+                <td><span class="formula-tag">(Prima * Beta) + RF</span></td>
+            </tr>
             <tr class="highlight-green">
                 <td>COSTO PONDERADO</td>
-                <td class="result-value">4.75%</td>
+                <td style="text-align: center; color: var(--accent); font-size: 22px;">4.75%</td>
                 <td><span class="formula-tag">Ks * 50%</span></td>
             </tr>
         </tbody>
     </table>
-    <div class="footer-brand">Proyecto Finanzas | Slide 5</div>
+    <div class="footer-brand">Proyecto Finanzas | Acc. Comunes</div>
 </div>
 
 <div class="slide-container">
-    <h2>Resumen de Costos de Capital (WACC)</h2>
+    <h2>Resumen de WACC Final</h2>
     <div class="card">
         <table>
             <thead>
                 <tr>
                     <th>Componente</th>
-                    <th style="text-align:right">Costo Ponderado</th>
+                    <th>Peso (W)</th>
+                    <th>Costo Individual</th>
+                    <th style="text-align:right">Ponderación</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>Costo Deuda</td><td style="text-align:right">1.68%</td></tr>
-                <tr><td>Costo Acciones Preferentes</td><td style="text-align:right">1.43%</td></tr>
-                <tr><td>Costo Acciones Comunes</td><td style="text-align:right">4.75%</td></tr>
+                <tr><td>Deuda</td><td>30%</td><td>5.36%</td><td style="text-align:right">1.61%</td></tr>
+                <tr><td>Acc. Preferentes</td><td>20%</td><td>7.17%</td><td style="text-align:right">1.43%</td></tr>
+                <tr><td>Acc. Comunes</td><td>50%</td><td>9.50%</td><td style="text-align:right">4.75%</td></tr>
                 <tr class="highlight-green" style="font-size: 24px;">
-                    <td>WACC FINAL</td>
-                    <td class="result-value">7.86%</td>
+                    <td colspan="3">WACC (Costo de Capital Promedio Ponderado)</td>
+                    <td class="result-value">7.79%</td>
                 </tr>
             </tbody>
         </table>
     </div>
-    <div class="footer-brand">Proyecto Finanzas | Slide 6</div>
+    <div class="footer-brand">Proyecto Finanzas | WACC</div>
 </div>
 
 <div class="slide-container">
-    <h2>Conclusiones y Toma de Decisiones</h2>
-    
-    <div class="question-box">
-        <h3>1. ¿Cuál es el costo de capital de la empresa?</h3>
-        <p class="answer">El WACC calculado es de 7.86%.</p>
-    </div>
+    <h2>Evaluación VPN (Flujos VP)</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Año</th>
+                <th>Flujo de Efectivo</th>
+                <th>Flujo VP (7.79%)</th>
+                <th>Fórmula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td class="highlight-red">-$ 5,175.00</td><td class="highlight-red">-$ 5,175.00</td><td><span class="formula-tag">-(Inv + Flotación)</span></td></tr>
+            <tr><td>1</td><td>$ 1,500.00</td><td>$ 1,391.57</td><td><span class="formula-tag">F / (1+wacc)^1</span></td></tr>
+            <tr><td>2</td><td>$ 1,500.00</td><td>$ 1,290.97</td><td><span class="formula-tag">F / (1+wacc)^2</span></td></tr>
+            <tr><td>3</td><td>$ 1,500.00</td><td>$ 1,197.65</td><td><span class="formula-tag">F / (1+wacc)^3</span></td></tr>
+            <tr><td>4</td><td>$ 1,500.00</td><td>$ 1,111.07</td><td><span class="formula-tag">F / (1+wacc)^4</span></td></tr>
+            <tr class="highlight-green">
+                <td colspan="2" style="text-align:right">VALOR PRESENTE NETO (VPN)</td>
+                <td class="highlight-red" style="font-size: 22px;">-$ 183.74</td>
+                <td><span class="formula-tag">  Σ Flujos VP</span></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer-brand">Proyecto Finanzas | VPN</div>
+</div>
 
+<div class="slide-container">
+    <h2>Conclusiones y Decisión</h2>
     <div class="question-box">
-        <h3>2. ¿Cuál es el Valor Presente Neto (VPN) ajustado?</h3>
-        <p class="answer">El VPN del proyecto es de -$191.66.</p>
+        <h3>1. ¿Costo de Capital (WACC)?</h3>
+        <p class="answer">El WACC es de 7.79%.</p>
     </div>
-
     <div class="question-box">
-        <h3>3. ¿Se debe llevar a cabo el proyecto de inversión?</h3>
-        <p class="answer">No se debe llevar a cabo.</p>
-        <p style="margin-top: 5px; font-size: 15px;"><strong>Razón:</strong> El proyecto destruye valor para los accionistas, ya que el valor presente de los flujos futuros no logra cubrir la inversión inicial más los costos de flotación, resultando en un VPN negativo.</p>
+        <h3>2. ¿VPN Ajustado?</h3>
+        <p class="answer">El VPN es de -$183.74.</p>
     </div>
-
-    <div class="footer-brand">Proyecto Finanzas | Conclusiones</div>
+    <div class="question-box">
+        <h3>3. ¿Se acepta el proyecto?</h3>
+        <p class="answer">RECHAZAR PROYECTO.</p>
+        <p style="font-size: 14px;"><strong>Razón:</strong> El VPN es negativo, lo que indica que el rendimiento del proyecto es inferior al costo de capital exigido por los inversionistas y la deuda.</p>
+    </div>
+    <div class="footer-brand">Proyecto Finanzas | Final</div>
 </div>
 
 </body>
