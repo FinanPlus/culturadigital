@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
     :root {
         --primary: #1a2a6c;
@@ -173,6 +174,15 @@
         color: var(--accent);
         font-weight: bold;
     }
+
+    /* Estilo específico para el contenedor de la gráfica */
+    .chart-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 400px;
+    }
 </style>
 </head>
 <body>
@@ -202,6 +212,14 @@
         </ul>
     </div>
     <div class="footer-brand">Proyecto Finanzas | Datos</div>
+</div>
+
+<div class="slide-container">
+    <h2>Visualización: Estructura de Capital (%)</h2>
+    <div class="chart-wrapper">
+        <canvas id="capitalChart"></canvas>
+    </div>
+    <div class="footer-brand">Proyecto Finanzas | Gráfica</div>
 </div>
 
 <div class="slide-container">
@@ -394,6 +412,35 @@
     </div>
     <div class="footer-brand">Proyecto Finanzas | Final</div>
 </div>
+
+<script>
+    const ctx = document.getElementById('capitalChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Peso Deuda', 'Peso Acciones Preferentes', 'Peso Acciones Comunes'],
+            datasets: [{
+                data: [30, 20, 50],
+                backgroundColor: ['#1a2a6c', '#b21f1f', '#27ae60'],
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'right',
+                    labels: {
+                        font: { size: 16, family: 'Segoe UI' },
+                        padding: 20
+                    }
+                }
+            }
+        }
+    });
+</script>
 
 </body>
 </html>
